@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+	<title> monCanvas</title>
+	<meta charset="utf-8">
+  <script>
+   var horizon=0;
+	 var vertical=0;
+	 var xCercle=10;
+  function AnimerSmileyV()
+   {
+		 context.clearRect(xRectangle,yRectangle,xRectangle+longRectangle,yRectangle+largRectangle);
+
+		 if(yCercle>=280){
+	 		vertical=1;
+	 	}
+	 	if(yCercle<=70){
+	 		vertical=0;
+	 	}
+
+	 	if(vertical==0){
+	     yCercle+=10;
+	   }
+	 	if(vertical==1){
+	 		yCercle-=10;
+	 	}
+
+		context.beginPath();
+		context.arc(xCercle,yCercle,rayon,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='black'; // couleur du cercle
+		context.fill();
+		context.stroke();
+
+		//dessiner l'oeil gauche
+		context.beginPath();
+		context.arc(xCercle-25,yCercle-10,9,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='white'; // couleur du cercle
+		context.fill();
+		context.stroke();
+
+		//dessiner l'oeil droit
+		context.beginPath();
+		context.arc(xCercle+25,yCercle-15,13,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='white'; // couleur du cercle
+		context.fill();
+		context.stroke();
+
+		//dessiner bouche
+		context.beginPath();
+		context.arc(xCercle+0,yCercle+25,7,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='white'; // couleur du cercle
+		context.fill();
+		context.stroke();
+
+		//dessiner pupille gauche
+		context.beginPath();
+		context.arc(xCercle-25,yCercle-10,3,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='black'; // couleur du cercle
+		context.fill();
+		context.stroke();
+
+		//dessiner l'oeil droit
+		context.beginPath();
+		context.arc(xCercle+25,yCercle-15,7,0,2*Math.PI,false); // caractéristique du cercle
+		context.fillStyle='black'; // couleur du cercle
+		context.fill();
+		context.stroke();
+    setTimeout('AnimerSmileyV()',20);
+	}
+
+	var horizon=0;
+	  var xCercle=10;
+	function AnimerSmileyH()
+   {
+    context.clearRect(xRectangle,yRectangle,xRectangle+longRectangle,yRectangle+largRectangle);
+
+  if(xCercle>=370){
+		horizon=1;
+	}
+	if(xCercle<=70){
+		horizon=0;
+	}
+
+	if(horizon==0){
+    xCercle+=10;
+  }
+	if(horizon==1){
+		xCercle-=10;
+	}
+	context.beginPath();
+	context.arc(xCercle,yCercle,rayon,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='black'; // couleur du cercle
+	context.fill();
+	context.stroke();
+
+	//dessiner l'oeil gauche
+	context.beginPath();
+	context.arc(xCercle-25,yCercle-10,9,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='white'; // couleur du cercle
+	context.fill();
+	context.stroke();
+
+	//dessiner l'oeil droit
+	context.beginPath();
+	context.arc(xCercle+25,yCercle-15,13,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='white'; // couleur du cercle
+	context.fill();
+	context.stroke();
+
+	//dessiner bouche
+	context.beginPath();
+	context.arc(xCercle+0,yCercle+25,7,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='white'; // couleur du cercle
+	context.fill();
+	context.stroke();
+
+	//dessiner pupille gauche
+	context.beginPath();
+	context.arc(xCercle-25,yCercle-10,3,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='black'; // couleur du cercle
+	context.fill();
+	context.stroke();
+
+	//dessiner l'oeil droit
+	context.beginPath();
+	context.arc(xCercle+25,yCercle-15,7,0,2*Math.PI,false); // caractéristique du cercle
+	context.fillStyle='black'; // couleur du cercle
+	context.fill();
+	context.stroke();
+	setTimeout('AnimerSmileyH()',20);
+
+}
+
+  function AnimerSmileyD()
+   {
+		 AnimerSmileyV();
+		 AnimerSmileyH();
+   }
+
+  </script>
+</head>
+<body>
+    <button onclick="AnimerSmileyV()">Verticale</button>
+		<button onclick="AnimerSmileyH()">Honrizontale</button>
+		<button onclick="AnimerSmileyD()">Diagonale</button>
+		<br>
+    <canvas id="monCanvas" width="600px" height="600px" style="border:1px solid black"></canvas></br>
+    <script>
+        var canvas= document.getElementById('monCanvas');
+        var context= canvas.getContext('2d');
+
+        var xRectangle=10;
+        var yRectangle=20;
+        var longRectangle=400;
+        var largRectangle=300;
+
+        var xCercle=longRectangle/2+xRectangle;
+        var yCercle=largRectangle/2+yRectangle;
+        var rayon=50;
+        //dessiner un xRectangle
+        context.beginPath(); //commencer le dessin
+        context.rect(xRectangle,yRectangle,xRectangle+longRectangle,yRectangle+largRectangle); // caractéristique du dessiner
+        context.stroke(); // fin de dessin
+
+        //dessiner un cercle
+        context.beginPath();
+        context.arc(xCercle,yCercle,rayon,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='black'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+        //dessiner l'oeil gauche
+        context.beginPath();
+        context.arc(xCercle-25,yCercle-10,9,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='white'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+        //dessiner l'oeil droit
+        context.beginPath();
+        context.arc(xCercle+25,yCercle-15,13,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='white'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+        //dessiner bouche
+        context.beginPath();
+        context.arc(xCercle+0,yCercle+25,7,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='white'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+        //dessiner pupille gauche
+        context.beginPath();
+        context.arc(xCercle-25,yCercle-10,3,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='black'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+        //dessiner l'oeil droit
+        context.beginPath();
+        context.arc(xCercle+25,yCercle-15,7,0,2*Math.PI,false); // caractéristique du cercle
+        context.fillStyle='black'; // couleur du cercle
+        context.fill();
+        context.stroke();
+
+    </script>
+
+</body>

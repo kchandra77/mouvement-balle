@@ -1,0 +1,42 @@
+html,
+
+/* render html5 elements as block */
+header, footer, section, aside, nav, h2 {
+display: block;
+margin: 0;
+padding: 0;
+}
+
+header,nav, aside, section, footer {
+font-size : 65px;
+ color : red;
+ border : 1px solid red;
+ padding : 30px 0px;
+ margin : 20px 0px;
+ }
+
+ nav, aside, section, footer {
+ font-size : 35px;
+ color : orange;
+ border : 1px solid orange;
+ padding : 10px 0px;
+ }
+
+ aside{ color : blue;
+ border : 1px solid blue;
+ }
+
+ section{
+ color : green;
+ border : 1px solid green;
+ }
+ h2{ font-size : 35px;
+ }
+ footer{
+ color : grey;
+ border : 1px solid grey;
+ }
+
+ .center{ text-align:center;}
+ .left{ text-align:left;}
+ .right{ text-align:right;}
